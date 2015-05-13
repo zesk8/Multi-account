@@ -4,10 +4,10 @@
  */
 
 var Sequelize = require('sequelize'),
-	fooDB = new Sequelize('foo', 'root', 'vincoorbis'),
-	barDB = new Sequelize('bar', 'root', 'vincoorbis');
+	fooDB = new Sequelize('foo', 'root', ''),
+	barDB = new Sequelize('bar', 'root', '');
 /*
-	Export instance
+	Export instances
  */
 module.exports = {
 	foo: fooDB,
