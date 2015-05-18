@@ -29,7 +29,7 @@ app.get('/foo', function(req, res) {
 	].join(' ');
 
 	foo.query(queries, { type: foo.QueryTypes.SELECT }).then(function(results){
-		console.log(results);
+		res.send(JSON.stringify(results));
 	});
 });
 /*
@@ -46,7 +46,7 @@ app.get('/bar', function(req, res) {
 		].join(' ');
 
 	bar.query(queries, { type: bar.QueryTypes.SELECT }).then(function(results){
-		console.log(results);
+		res.send(JSON.stringify(results));
 	});
 });
 
