@@ -4,8 +4,18 @@
  */
 
 var Sequelize = require('sequelize'),
-	fooDB = new Sequelize('foo', 'root', ''),
-	barDB = new Sequelize('bar', 'root', '');
+	fooDB = new Sequelize('md_vinco', 'root', '', {
+		dialect: 'mysql',
+		dialectOptions: {
+			multipleStatements: true
+		}
+	}),
+	barDB = new Sequelize('md_gt', 'root', '', {
+		dialect: 'mysql',
+		dialectOptions: {
+		multipleStatements: true
+		}
+	});
 /*
 	Export instances
  */
