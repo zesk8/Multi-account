@@ -12,6 +12,35 @@ app.get('/', function(req, res){
 		title: 'Home page'
 	});
 });
+
+app.get('/clock/:user_id', function (req, res){
+	var	foo = app.get('connections').foo;
+	var clock = require('./model').Clock(foo);	
+
+	clock.findAll({ where: { id_usuario: 6182 }, raw: true }).then(function (times) {
+		res.send(JSON.stringify(times));
+	});
+});
+
+app.post('/clocks', function (req, res){
+	var	foo = app.get('connections').foo;
+	var clock = require('./model').Clock(foo);
+	var time = new Date();
+
+	clock.create({
+		created_at:     null,
+        id_usuario:     6182,
+        fecha_y_hora:   time,
+        es_entrada:     0,
+        comentario:     null,
+        es_automatica:  0,
+        es_importacion: 0
+	}).then(function (check){
+		res.send(check);
+	});
+});
+
+
 /*
 	Foo installation
  */
